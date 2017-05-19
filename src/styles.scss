@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-.game-area {
-  margin-top: 25px;
+.game-area,
+.command-area {
 	width: 450px;
+  float: none;
+  margin: 25px auto;
 }
 
 .tick-tack-grid {

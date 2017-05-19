@@ -13,18 +13,14 @@ import { GameService } from './game.service';
 export class AppComponent {
 
 	lock = false;
-	constructor(public gs: GameService, public snackBar: MdSnackBar) {}
+	constructor(public gs: GameService) {}
 
 	newGame() {
 		this.gs.freeBlocksRemaining = 9;
 		this.gs.initBlocks();
 		this.lock = false;
 		this.gs.turn = 0;
-	}
-
-	resetGame(event) {
-		location.reload();
-		event.preventDefault();
+		this.gs.message = this.gs.players[0].name + ' turn'
 	}
 
 	playerClick(i) {
@@ -40,18 +36,21 @@ export class AppComponent {
 
 		if (this.gs.anyoneWins()) {
 			this.lock = true;
-			this.gs.players[this.gs.turn].score += 1;
+			var winnerName = this.gs.players[this.gs.turn].name
+			this.gs.message = winnerName + ' wins!'
 			return;
 		}
 
 		// no more free blocks, game draw
 		if (this.gs.freeBlocksRemaining <= 0) {
-			this.gs.draw += 1;
 			this.lock = true;
+			this.gs.message = 'Game draw!'
 			return;
 		}
 
 		var player = this.gs.changeTurn();
+		var playerName = this.gs.players[player].name
+		this.gs.message = playerName + ' turn'
 	}
 
 

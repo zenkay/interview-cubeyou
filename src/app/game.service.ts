@@ -7,8 +7,7 @@ export class GameService {
 
 	players = []
 	turn: number = 0; // By Default First Player turn is First
-	draw: number = 0;
-
+	message: string = "";
 	blocks = [];
 	freeBlocksRemaining = 9;
 
@@ -29,15 +28,24 @@ export class GameService {
 	}
 
 	initPlayers() {
-		var player1 = new Player();
-		var player2 = new Player();
+		var player1 = new Player("Player 1");
+		var player2 = new Player("Player 2");
 		this.players.push(player1);
 		this.players.push(player2);
+		this.message = player1.name + ' turn'
 	}
 
 	changeTurn() {
 		this.turn = (this.turn === 1 ? 0 : 1)
 		return this.turn;
+	}
+
+	anyoneWins() {
+		console.log(this.blocks)
+		var filledBlocks = this.blocks
+			.map((b, i) => ({ block: b.value, position: i, free: b.free }))
+			.filter(b => !b.free);
+		return (this.doesPlayerWins('circle', filledBlocks) || this.doesPlayerWins('cross', filledBlocks));
 	}
 
 	doesPlayerWins(value, blocks) {
@@ -51,20 +59,15 @@ export class GameService {
 			[0, 4, 8], // lrt
 			[2, 4, 6] // rtl
 		]
-		var takenPositions = blocks.map(b => b.position)
-		// ???
-		WINNING_COMBINATION.forEach(w => {
-			var diff = wc.filter(x => takenPositions.indexOf(x) < 0 );
-			if (diff.length === 0) return true;
-		})
-		return false;
-	}
 
-	anyoneWins() {
-		var filledBlocks = this.blocks
-			.filter(b => !b.free)
-			.map((b, i) => ({ block: b.value, position: i }));
-		return (this.doesPlayerWins('cross', filledBlocks) || this.doesPlayerWins('circle', filledBlocks));
+		var takenPositions = blocks.filter(b => b.block == value).map(b => b.position)
+		console.log('takenPositions', takenPositions)
+		for(var i = 0; i < WINNING_COMBINATION.length; i++) {
+			var diff = WINNING_COMBINATION[i].filter(x => takenPositions.indexOf(x) < 0);
+			console.log('diff', diff)
+			if (diff.length === 0) return true;
+		}
+		return false;
 	}
 
 }
