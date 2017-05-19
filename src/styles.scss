@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+.game-area {
+  margin-top: 25px;
+	width: 450px;
+}
+
+.tick-tack-grid {
+	div md-grid-tile {
+    cursor: pointer;
+    margin: 0;
+
+    figure {
+      border: 7px solid #666;
+    }
+
+    i.material-icons.circle {
+      color: green;
+      font-size: 80px;
+    }
+
+    i.material-icons.cross {
+      color: red;
+      font-size: 90px;
+    }
+	}
+}
