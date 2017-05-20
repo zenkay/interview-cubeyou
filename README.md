@@ -24,11 +24,23 @@ N.B. The Angular-CLI require Node.js. The Project is tested **only** with versio
 
 ## Description
 
-Project is composed by 4 elements:
+Project is based on 4 elements:
 
 - **App Component** initialize the game and handle player's moves updating the UI accordingly.
 - **Game Service** implement logic for initialize the game and decide if someone wins 
 - **Block** modelize a single checkbox of the game grid
 - **Players** modelize the users that play the game one after the other
 
+## Technological choices
 
+A few days ago I applied for a Full MEAN Stack developer position at Cubeyou. After a quick chat with recruiter, I received an assignment from Cubeyou's CTO: implement the Tic Tac Toe game as single page application. 
+
+My first move was to Google about the game implementation in Javascript. Its a pretty common demo app so I was able to find a tons of already implemented version. 
+
+jQuery would have been an easy move. I could implement all the logic in a single HTML file and ship it. Easy but I wouldn't learn anything new.
+
+React would have been my choice. I like the project and, together with Redux, enable developers to implement beautiful application with a pure functional style. Anyway I already use it at my current job and Cubeyou is working on the MEAN stack so my choice goes to Angular.
+
+I never implemented an Angular application from scratch and the Angular-CLI was a beautiful discovery. I followed a tutorial that implement a raw version of the interface and the logic. Then I removed everything I didn't need, redesign the UI and refactor the code.
+
+The result wasn't impressive but works quite well. 
