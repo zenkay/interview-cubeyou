@@ -41,7 +41,6 @@ export class GameService {
 	}
 
 	anyoneWins() {
-		console.log(this.blocks)
 		var filledBlocks = this.blocks
 			.map((b, i) => ({ block: b.value, position: i, free: b.free }))
 			.filter(b => !b.free);

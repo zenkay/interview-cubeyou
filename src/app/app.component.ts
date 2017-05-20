@@ -4,10 +4,10 @@ import { Block } from './block';
 import { GameService } from './game.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [GameService]
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss'],
+	providers: [GameService]
 })
 export class AppComponent {
 
