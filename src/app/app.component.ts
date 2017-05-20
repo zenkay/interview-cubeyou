@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
 import { Player } from './player';
 import { Block } from './block';
 import { GameService } from './game.service';

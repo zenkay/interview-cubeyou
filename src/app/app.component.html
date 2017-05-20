@@ -5,7 +5,7 @@
 	<div class="col-md-12">
 		<h1 class="text-center">{{ gs.message }}</h1>
 		<div class="game-area">
-			<md-grid-list class="tick-tack-grid" cols="3">
+			<md-grid-list class="grid" cols="3">
 				<md-grid-tile *ngFor="let block of gs.blocks; let i = index; trackBy: trackByFn" (click)="playerClick(i)"><i [class]="block.symbol == 'close' ? 'material-icons cross' : 'material-icons circle'">{{ block.symbol }}</i></md-grid-tile>
 			</md-grid-list>
 		</div>

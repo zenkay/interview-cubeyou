@@ -1,14 +1,14 @@
-import { TickTackPage } from './app.po';
+import { TicTacToeGame } from './app.po';
 
 describe('tick-tack App', () => {
-  let page: TickTackPage;
+  let page: TicTacToeGame;
 
   beforeEach(() => {
-    page = new TickTackPage();
+    page = new TicTacToeGame();
   });
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getTitle()).toEqual('Player 1 turn');
   });
 });

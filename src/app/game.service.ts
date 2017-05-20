@@ -61,10 +61,8 @@ export class GameService {
 		]
 
 		var takenPositions = blocks.filter(b => b.block == value).map(b => b.position)
-		console.log('takenPositions', takenPositions)
 		for(var i = 0; i < WINNING_COMBINATION.length; i++) {
 			var diff = WINNING_COMBINATION[i].filter(x => takenPositions.indexOf(x) < 0);
-			console.log('diff', diff)
 			if (diff.length === 0) return true;
 		}
 		return false;

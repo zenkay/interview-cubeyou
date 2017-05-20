@@ -9,6 +9,4 @@ export class Block {
 			? "radio_button_unchecked" // O
 			: "close" // X
 	}
-
-
 }
